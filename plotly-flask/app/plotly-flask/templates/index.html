@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      Plotly-Flask demo
+    </title>
+
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <!-- I want just a little more margin around everything than bootstrap defaults to . . . -->
+    <style> body { margin: 20px; } </style>
+
+    <!-- Note: no <script> tag is needed here in <head>.
+        plotly.offline.plot(output_type='div') outputs a string for the
+        <div> tag which includes within itself the <script> tag
+        with the minified JavaScript.-->
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <!-- Render the div created plotly.offline.plot -->
+          {{ div | indent(4) | safe }}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

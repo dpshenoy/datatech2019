@@ -1,0 +1,5 @@
+bokeh==1.1.0
+Flask==1.0.2
+gunicorn==19.9.0
+pandas==0.24.2
+pip==19.1

@@ -1,0 +1,17 @@
+version: '3.2'
+services:
+  app:
+    build: ./app
+    container_name: bokeh-flask
+    volumes:
+        - ./app/bokeh-flask:/app/bokeh-flask
+    ports:
+      - target: 5000
+        published: 5000 
+    environment:
+      - API_WORKERS=4     # http://docs.gunicorn.org/en/stable/design.html#how-many-workers
+      - API_ACCESSLOG=-   # log connections to stdout inside container
+      - API_RELOAD=True   # auto-reload when code changes
+      - API_TRACE=True    # enable trace logs for dev
+      - FLASK_DEBUG=True
+    command: gunicorn -c conf/gunicorn.py app:app
