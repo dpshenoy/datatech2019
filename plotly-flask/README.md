@@ -24,7 +24,7 @@ Run `make build` to build the Flask app's Docker image. Start the container with
 
 The container runs a [gunicorn] WSGI server to serve up the Flask app (versus directly running Flask's development server, which is unsuited for production use).
 
-The docker-compose.yaml file maps the container port 5000 out to the same host machine port number for reaching the running app. To view the plot, open http://localhost:5000/ in your browser.
+The docker-compose.yaml file maps the container port 5000 out to host machine port number 5001. To reach the running app, open http://localhost:5001/ in your browser.
 
 Optionally do `make shell` if you need to work inside the container. Stop and remove the running container with `make down`.
 
@@ -55,10 +55,10 @@ $ make server && docker ps -a
 docker-compose up -d
 Recreating plotly-flask ... done
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                  PORTS                    NAMES
-bb126d4a3156        plotly-flask_app    "gunicorn -c conf/gu…"   2 seconds ago       Up Less than a second   0.0.0.0:5000->5000/tcp   plotly-flask
+bb126d4a3156        plotly-flask_app    "gunicorn -c conf/gu…"   2 seconds ago       Up Less than a second   0.0.0.0:5001->5000/tcp   plotly-flask
 ```
 
-Then open http://localhost:5000 in your browser to reach the running app. To stop the app:
+Then open http://localhost:5001/ in your browser to reach the running app. To stop the app:
 ```bash
 $ make down && docker ps -a
 -------------------------------------

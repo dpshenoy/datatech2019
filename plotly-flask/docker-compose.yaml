@@ -7,7 +7,7 @@ services:
         - ./app/plotly-flask:/app/plotly-flask
     ports:
       - target: 5000
-        published: 5000 
+        published: 5001
     environment:
       - API_WORKERS=4     # http://docs.gunicorn.org/en/stable/design.html#how-many-workers
       - API_ACCESSLOG=-   # log connections to stdout inside container
