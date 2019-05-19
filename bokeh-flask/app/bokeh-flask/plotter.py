@@ -29,7 +29,7 @@ def generate_plot():
 
     p = figure(
         title="Iris Data Set: Petal Width vs Length", tools=tools,
-        active_drag='box_zoom', width=1400, height=700
+        active_drag='box_zoom', width=800, height=400
     )
 
     p.circle(
