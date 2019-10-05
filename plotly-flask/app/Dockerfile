@@ -8,7 +8,8 @@ RUN set -x \
 
 RUN mkdir /app
 ADD requirements.txt /app/requirements.txt
-RUN pip install -r /app/requirements.txt
+RUN pip install pip --upgrade \
+    && pip install -r /app/requirements.txt
 
 ADD ./plotly-flask /app/plotly-flask
 WORKDIR /app/plotly-flask
